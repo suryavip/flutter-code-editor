@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../settings_controller.dart';
 
@@ -64,10 +64,7 @@ class SearchSettingsWidget extends StatelessWidget {
                 settingsController.value.isCaseSensitive,
                 settingsController.value.isRegExp,
               ],
-              children: const [
-                Text('Aa'),
-                Text('.*'),
-              ],
+              children: const [Text('Aa'), Text('.*')],
             ),
           ],
         );

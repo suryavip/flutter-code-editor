@@ -8,17 +8,13 @@ import 'package:meta/meta.dart';
 import 'code_line.dart';
 
 @immutable
-class CodeLines with EquatableMixin {
+class CodeLines with Equatable {
   final List<CodeLine> lines;
 
   const CodeLines(this.lines);
 
   static const empty = CodeLines([
-    CodeLine(
-      text: '',
-      textRange: TextRange.collapsed(0),
-      indent: 0,
-    ),
+    CodeLine(text: '', textRange: TextRange.collapsed(0), indent: 0),
   ]);
 
   CodeLine operator [](int i) => lines[i];
@@ -44,7 +40,8 @@ class CodeLines with EquatableMixin {
       }
 
       // Linear interpolation search.
-      final lineIndex = lowerLine +
+      final lineIndex =
+          lowerLine +
           ((upperLine - lowerLine) *
                   (characterIndex - lowerCharacter) /
                   (upperCharacter - lowerCharacter))
@@ -76,7 +73,5 @@ class CodeLines with EquatableMixin {
   }
 
   @override
-  List<Object> get props => [
-        lines,
-      ];
+  List<Object> get props => [lines];
 }

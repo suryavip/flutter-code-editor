@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:highlight/languages/java.dart';
@@ -9,8 +9,7 @@ import 'package:highlight/languages/php.dart';
 void main() {
   group('Comment Out / Uncomment', () {
     group('Language: java', () {
-      test(
-          'WHEN selection is collapsed '
+      test('WHEN selection is collapsed '
           'SHOULD comment out the selected line if it is not a comment '
           'and uncomment otherwise '
           'AND select whole lines', () {

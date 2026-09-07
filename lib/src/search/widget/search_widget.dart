@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../controller.dart';
 import 'focus_rediretor.dart';
@@ -10,10 +10,7 @@ const _iconSize = 24.0;
 class SearchWidget extends StatelessWidget {
   final CodeSearchController searchController;
 
-  const SearchWidget({
-    super.key,
-    required this.searchController,
-  });
+  const SearchWidget({super.key, required this.searchController});
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +45,7 @@ class SearchWidget extends StatelessWidget {
                     onTap: () => searchController.hideSearch(
                       returnFocusToCodeField: true,
                     ),
-                    child: const Icon(
-                      Icons.close,
-                      size: _iconSize,
-                    ),
+                    child: const Icon(Icons.close, size: _iconSize),
                   ),
                 ),
               ],

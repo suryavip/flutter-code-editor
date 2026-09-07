@@ -1,7 +1,7 @@
 // TODO(alexeyinkin): Remove when dropping support for Flutter < 3.10, https://github.com/akvelon/flutter-code-editor/issues/245
 // ignore_for_file: unnecessary_non_null_assertion
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../code_field/code_controller.dart';
 import '../line_numbers/gutter_style.dart';
@@ -17,6 +17,7 @@ const _foldingColumn = 2;
 
 class GutterWidget extends StatelessWidget {
   const GutterWidget({
+    super.key,
     required this.codeController,
     required this.style,
     required this.scrollController,
@@ -43,24 +44,22 @@ class GutterWidget extends StatelessWidget {
   Widget _buildOnChange(BuildContext context, Widget? child) {
     final code = codeController.code;
 
-    final gutterWidth = style.width -
+    final gutterWidth =
+        style.width -
         (style.showErrors ? 0 : _issueColumnWidth) -
         (style.showFoldingHandles ? 0 : _foldingColumnWidth);
 
     final issueColumnWidth = style.showErrors ? _issueColumnWidth : 0.0;
-    final foldingColumnWidth =
-        style.showFoldingHandles ? _foldingColumnWidth : 0.0;
+    final foldingColumnWidth = style.showFoldingHandles
+        ? _foldingColumnWidth
+        : 0.0;
 
     final tableRows = List.generate(
       code.hiddenLineRanges.visibleLineNumbers.length,
       // ignore: prefer_const_constructors
       (i) => TableRow(
         // ignore: prefer_const_literals_to_create_immutables
-        children: [
-          const SizedBox(),
-          const SizedBox(),
-          const SizedBox(),
-        ],
+        children: [const SizedBox(), const SizedBox(), const SizedBox()],
       ),
     );
 

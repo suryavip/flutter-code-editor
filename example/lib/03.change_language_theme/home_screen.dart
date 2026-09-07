@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 
 import '../common/snippets.dart';
@@ -18,6 +18,8 @@ const toggleButtonActiveColor = Colors.white;
 final _analyzers = [_defaultAnalyzer, _dartAnalyzer];
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -109,9 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
               controller: _codeController,
               textStyle: const TextStyle(fontFamily: 'SourceCode'),
               gutterStyle: GutterStyle(
-                textStyle: const TextStyle(
-                  color: Colors.purple,
-                ),
+                textStyle: const TextStyle(color: Colors.purple),
                 showLineNumbers: _showNumbers,
                 showErrors: _showErrors,
                 showFoldingHandles: _showFoldingHandles,

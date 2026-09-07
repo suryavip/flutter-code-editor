@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// This widget wraps the child with [InkWell] and
 /// redirects the focus to [redirectTo] when receiving onTap events.

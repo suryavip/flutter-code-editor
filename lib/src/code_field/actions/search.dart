@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 import '../code_controller.dart';
 
@@ -9,9 +9,7 @@ class SearchIntent extends Intent {
 class SearchAction extends Action<SearchIntent> {
   final CodeController controller;
 
-  SearchAction({
-    required this.controller,
-  });
+  SearchAction({required this.controller});
 
   @override
   Object? invoke(SearchIntent intent) {

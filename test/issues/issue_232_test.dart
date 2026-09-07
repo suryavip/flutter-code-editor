@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:highlight/languages/java.dart';
@@ -68,9 +68,7 @@ public class MyClass {
 
 void main() {
   test('Issue 232', () {
-    final controller = CodeController(
-      language: java,
-    );
+    final controller = CodeController(language: java);
 
     controller.fullText = _fullText;
     controller.foldCommentAtLineZero();

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 /// Describes a break in continuous line numbers.
-class LineNumberingBreakpoint with EquatableMixin {
+class LineNumberingBreakpoint with Equatable {
   /// The full line index.
   final int full;
 
@@ -15,16 +15,16 @@ class LineNumberingBreakpoint with EquatableMixin {
     required this.full,
     required this.visible,
     required this.spreadBefore,
-  })  : assert(
-          full >= visible,
-          'fullLineIndex must be >= visibleLineIndex, '
-          'given $full and $visible',
-        ),
-        assert(
-          spreadBefore < full - visible,
-          'A breakpoint must increase the previous spread. '
-          'Old=$spreadBefore, New=($full - $visible)',
-        );
+  }) : assert(
+         full >= visible,
+         'fullLineIndex must be >= visibleLineIndex, '
+         'given $full and $visible',
+       ),
+       assert(
+         spreadBefore < full - visible,
+         'A breakpoint must increase the previous spread. '
+         'Old=$spreadBefore, New=($full - $visible)',
+       );
 
   int get spread => full - visible;
 
@@ -66,13 +66,10 @@ class LineNumberingBreakpoint with EquatableMixin {
   }
 
   @override
-  String toString() => 'LineNumberingBreakpoint: $full -> $visible '
+  String toString() =>
+      'LineNumberingBreakpoint: $full -> $visible '
       '(spreadBefore = $spreadBefore)';
 
   @override
-  List<Object> get props => [
-        full,
-        visible,
-        spreadBefore,
-      ];
+  List<Object> get props => [full, visible, spreadBefore];
 }

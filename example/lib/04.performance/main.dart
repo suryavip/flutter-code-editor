@@ -8,7 +8,7 @@
 import 'dart:js_interop' as js;
 import 'dart:js_interop_unsafe' as js_util;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 import 'package:flutter_highlight/themes/vs2015.dart';
 import 'package:highlight/languages/java.dart';
@@ -16,13 +16,14 @@ import 'package:highlight/languages/java.dart';
 const attempts = 5;
 const maxKLines = 10;
 const text = 'int efghijklmnopqrstuvwxy;\n';
-final texts = [
-  for (int i = 0; i <= maxKLines; i++) text * i * 1000,
-];
+final texts = [for (int i = 0; i <= maxKLines; i++) text * i * 1000];
 
 const span = TextSpan(
   children: [
-    TextSpan(text: 'int', style: TextStyle(color: Colors.red)),
+    TextSpan(
+      text: 'int',
+      style: TextStyle(color: Colors.red),
+    ),
     TextSpan(
       text: ' efghijklmnopqrstuvwxy;\n',
       style: TextStyle(color: Colors.grey),
@@ -41,31 +42,30 @@ final controllers = {
   'CodeController, Java': CodeController(language: java),
 };
 
-typedef FieldFactory = Widget Function({
-  required TextEditingController controller,
-  required bool expands,
-});
+typedef FieldFactory =
+    Widget Function({
+      required TextEditingController controller,
+      required bool expands,
+    });
 
 final fieldFactories = <String, FieldFactory>{
-  'TextField': ({required controller, required expands}) => TextField(
-        controller: controller,
-        maxLines: null,
-        expands: expands,
-      ),
-  'CodeField': ({required controller, required expands}) => CodeField(
-        controller: controller as CodeController,
-        expands: expands,
-      ),
+  'TextField': ({required controller, required expands}) =>
+      TextField(controller: controller, maxLines: null, expands: expands),
+  'CodeField': ({required controller, required expands}) =>
+      CodeField(controller: controller as CodeController, expands: expands),
 };
 
-final renderer =
-    js.globalContext['flutterCanvasKit'] == null ? 'HTML' : 'CanvasKit';
+final renderer = js.globalContext['flutterCanvasKit'] == null
+    ? 'HTML'
+    : 'CanvasKit';
 
 void main() {
   runApp(CodeEditor());
 }
 
 class CodeEditor extends StatefulWidget {
+  const CodeEditor({super.key});
+
   @override
   State<CodeEditor> createState() => _CodeEditorState();
 }
@@ -94,10 +94,7 @@ class _CodeEditorState extends State<CodeEditor> {
               onPressed: _setTexts,
               child: const Text('1-${maxKLines}k'),
             ),
-            ElevatedButton(
-              onPressed: _runAll,
-              child: const Text('All'),
-            ),
+            ElevatedButton(onPressed: _runAll, child: const Text('All')),
           ],
         ),
         body: CodeTheme(

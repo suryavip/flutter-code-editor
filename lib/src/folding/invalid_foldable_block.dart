@@ -7,32 +7,25 @@ import 'foldable_block_type.dart';
 
 /// Anything that failed to be a [FoldableBlock] due to missing
 /// the opposite pair character.
-class InvalidFoldableBlock with EquatableMixin {
+class InvalidFoldableBlock with Equatable {
   final int? startLine;
   final int? endLine;
   final Issue issue;
   final FoldableBlockType type;
 
-  InvalidFoldableBlock({
-    required this.type,
-    this.startLine,
-    this.endLine,
-  })  : assert(
-          startLine != null || endLine != null,
-          'startLine or endLine must be non-null',
-        ),
-        issue = Issue(
-          line: startLine ?? endLine ?? 0,
-          message: 'Invalid foldable block',
-          type: IssueType.error,
-        );
+  InvalidFoldableBlock({required this.type, this.startLine, this.endLine})
+    : assert(
+        startLine != null || endLine != null,
+        'startLine or endLine must be non-null',
+      ),
+      issue = Issue(
+        line: startLine ?? endLine ?? 0,
+        message: 'Invalid foldable block',
+        type: IssueType.error,
+      );
 
   @override
-  List<Object?> get props => [
-        startLine,
-        endLine,
-        type,
-      ];
+  List<Object?> get props => [startLine, endLine, type];
 }
 
 extension InvalidFoldableBlockList on List<InvalidFoldableBlock> {

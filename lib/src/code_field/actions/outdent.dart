@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 import '../../../flutter_code_editor.dart';
 
@@ -9,9 +9,7 @@ class OutdentIntent extends Intent {
 class OutdentIntentAction extends Action<OutdentIntent> {
   final CodeController controller;
 
-  OutdentIntentAction({
-    required this.controller,
-  });
+  OutdentIntentAction({required this.controller});
 
   @override
   Object? invoke(OutdentIntent intent) {

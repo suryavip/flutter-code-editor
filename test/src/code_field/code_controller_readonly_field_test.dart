@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -6,21 +6,11 @@ void main() {
   group('CodeController.readOnly', () {
     test('Setting readonly restricts modification of text', () {
       const initialText = 'Aaa\nAaaa';
-      final controller = CodeController(
-        text: initialText,
-        readOnly: true,
-      );
+      final controller = CodeController(text: initialText, readOnly: true);
 
-      controller.value = const TextEditingValue(
-        text: 'Bbb\nBbbb',
-      );
+      controller.value = const TextEditingValue(text: 'Bbb\nBbbb');
 
-      expect(
-        controller.value,
-        const TextEditingValue(
-          text: initialText,
-        ),
-      );
+      expect(controller.value, const TextEditingValue(text: initialText));
 
       const wholeTextSelection = TextSelection(
         baseOffset: 0,

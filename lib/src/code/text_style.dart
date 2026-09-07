@@ -18,12 +18,7 @@ extension TextStyleExtension on TextStyle {
     }
 
     return copyWith(
-      color: Color.fromARGB(
-        clr.alpha ~/ 2,
-        clr.red,
-        clr.green,
-        clr.blue,
-      ),
+      color: Color.fromARGB(clr.alpha ~/ 2, clr.red, clr.green, clr.blue),
     );
   }
 }

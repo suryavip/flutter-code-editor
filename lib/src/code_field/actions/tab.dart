@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../code_controller.dart';
 
@@ -9,9 +9,7 @@ class TabKeyIntent extends Intent {
 class TabKeyAction extends Action<TabKeyIntent> {
   final CodeController controller;
 
-  TabKeyAction({
-    required this.controller,
-  });
+  TabKeyAction({required this.controller});
 
   @override
   Object? invoke(TabKeyIntent intent) {

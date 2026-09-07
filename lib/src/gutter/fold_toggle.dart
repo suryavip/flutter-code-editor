@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'clickable.dart';
 
@@ -8,6 +8,7 @@ class FoldToggle extends StatelessWidget {
   final VoidCallback onTap;
 
   const FoldToggle({
+    super.key,
     required this.color,
     required this.isFolded,
     required this.onTap,
@@ -19,11 +20,7 @@ class FoldToggle extends StatelessWidget {
       onTap: onTap,
       child: RotatedBox(
         quarterTurns: isFolded ? 0 : 1,
-        child: Icon(
-          Icons.chevron_right,
-          color: color,
-          size: 16,
-        ),
+        child: Icon(Icons.chevron_right, color: color, size: 16),
       ),
     );
   }
